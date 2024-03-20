@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--link rel="stylesheet" href="../../css/StudentRegister.css"-->
+    <link rel="stylesheet" href="StudentRegister.css">
+    <!--  -----------------------------------SCRIPT----------------------------------------
+    <script src="js/script.js"> </script>
+    !--------------------------------------------------------------------------------------->
+    <title>Admin</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+ <script>
+    function showInfo() {
+        var relation = document.getElementById('relation').value;
+        var fatherInfo = document.getElementById('fatherInfo');
+        var guardianInfo = document.getElementById('guardianInfo');
+        var mom_details = document.getElementById('Hidden_SelectGuad');
+    
+        //Hide both sections initially
+        fatherInfo.style.display = 'none';
+        guardianInfo.style.display = 'none';
+    
+        // Show the relevant section based on the selected relation
+        if (relation === 'parent') {
+            guardianInfo.style.display = 'none';
+            fatherInfo.style.display = 'flex';
+            mom_details.style.display = 'flex';
+    
+    
+        } else if (relation === 'guardian') {
+            fatherInfo.style.display = 'none';
+            guardianInfo.style.display = 'flex';
+            mom_details.style.display = 'none';
+    
+        }
+        else {
+            fatherInfo.style.display = 'none';
+            guardianInfo.style.display = 'none';
+    
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="../img/spkclogo.png" alt="" height="100px" width="100px" style="border-radius: 0px;">
+            <div class="clg-name" style="margin-left:10px;">
+                <h1 style="color:#ffffff"><span style="font-size:38px;">S</span>ri <span style="font-size:38px;">P</span>aramakalyani <span style="font-size:38px;">S</span>chool</h1>
+                <h2 style="color:rgb(255, 255, 255); font-size:20px; text-align:center;">Alwarkurichi, Tenkasi District
+                </h2>
+            </div>
+        </div>
+        <div class="menus">
+            <ul>
+            <a href="../Admin/admin.html">
+                    <li>Admin </li>
+                </a>
+                <a href="update.php">
+                    <li>Update </li>
+                </a>
+
+                <a href="retrieval.html">
+                    <li>Retrieve </li>
+                </a>
+              
+
+            </ul>
+        </div>
+
+    </div>
+
+    <form  method="POST" id="myForm" action="action.php">
+        <section id="Applicant_Personal">
+            <h1 style="margin-left: 15px;">Student Details</h1>
+            <div class="personal">
+                <h2>Personal Details</h2>
+                <div class="personal_row_1">
+                    <div class="frm-template">
+                        <label for="sname">Student Name<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="Name_val" id="sname" name="sname" placeholder="Enter StudentName" required  />
+                        <span class="CommonErr" id="snameError" style="color: red;"></span>
+                    </div>
+                    <div class="frm-template">
+                        <label for="s_dof">Date of Birth<span class="mandatory">*</span>
+                        </label>
+                        <input type="date" name="s_dob" id="s_dof" placeholder="Enter Date of Birth"  />
+                    </div>
+                    <div class="frm-template">
+                        <label for="Gender">Gender<span class="mandatory">*</span>
+                        </label>
+                        <select name="gender" id="Gender" >
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="personal_row_1">
+                    <div class="frm-template">
+                        <label for="phone">Phone Number<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="nos" id="phone" maxlength="10" minlength="10" name="phno" placeholder="Enter PhoneNumber"  />
+                        <span class="CommonErr" id="phoneError" style="color: red;"></span>
+                    </div>
+
+                    <div class="frm-template">
+
+                        <label for="wtsapp">Whatsapp Number<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="nos" id="wtsapp" maxlength="10" minlength="10" name="wtsapp" placeholder="Enter WhatsappNumber"  />
+                        <span class="CommonErr" id="wtsappError" style="color: red;"></span>
+                    </div>
+                    <div class="frm-template">
+                        <label for="state">Mail Id<span class="mandatory">*</span>
+                        </label>
+                        <input type="email" id="mailid" name="email" placeholder="Enter Mail-Id"  />
+                    </div>
+
+                </div>
+                <div class="personal_row_1">
+
+                    <div class="frm-template">
+                        <label for="schltype">School Type<span class="mandatory">*</span>
+                        </label>
+                        <select name="schltype" id="schltype" >
+                            <option value="none" selected>Select</option>
+                            <option value="Goverment">Goverment</option>
+                            <option value="Govt.Aided">Govt.Aided</option>
+                            <option value="Private">Private</option>
+                            <option value="CBSE">CBSE</option>
+                        </select>
+                    </div>
+
+                    <div class="frm-template">
+                        <label for="sclname">School Name<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="Name_val" id="sclname" name="schlstu" placeholder="School Name"  />
+                        <span class="CommonErr" id="sclnameError" style="color: red;"></span>
+                    </div>
+                    <div class="frm-template">
+                        <label for="emis">Emis Number<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="nos" name="emis" id="emis" maxlength="16" minlength="16" placeholder="Enter Emis Number"  />
+                        <span class="CommonErr" id="emisError" style="color: red;"></span>
+                    </div>
+                </div>
+
+
+                <div class="personal_row_1">
+
+
+                    <div class="frm-template">
+                        <label for="nation">Religion<span class="mandatory">*</span>
+                        </label>
+                        <select name="religion" >
+                            <option value="" selected>Select</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Chirstian">Chirstian</option>
+                            <option value="Muslim">Muslim</option>
+                        </select>
+                    </div>
+                    <div class="frm-template">
+                        <label for="nation">Community<span class="mandatory">*</span>
+                        </label>
+                        <select name="community" id="community" onchange="CasteRender();" >
+                            <option value="" selected>Select</option>
+                        </select>
+                    </div>
+                    <div class="frm-template">
+
+                        <label for="nation">Caste<span class="mandatory">*</span>
+                        </label>
+                        <select name="caste" id="comm_caste" >
+                            <option value="" selected>Select</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="personal_row_1">
+
+                    <div class="frm-template">
+                        <label for="nation">Nationality
+                        </label>
+                        <select name="nation" >
+                            <option value="" selected>Select</option>
+                            <option value="Indian">Indian</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="frm-template">
+
+                        <label for="nation">Mother Tongue
+                        </label>
+                        <select name="mother_tongue" >
+                            <option value="" selected>Select</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="Kannada">Kannda</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="frm-template">
+                        <label for="aadharno">Aadhar Number<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="nos"  name="aadharno" maxlength="12" minlength="12" id="aadharno" placeholder="Enter AadharNumber"  />
+                        <span class="CommonErr" id="aadharnoError" style="color: red;"></span>
+                    </div>
+                </div>
+                <div class="personal_row_1">
+                    <div class="frm-template">
+                        <label for="disability">Disability<span class="mandatory">*</span>
+                        </label>
+                        <select name="disability"  >
+                            <option value="" selected>Select</option>
+                            <option value="YES">Yes</option>
+                            <option value="NO">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div></div>
+                <div></div>
+                <a href="#Applicant_Academic"><input type="button" class="btn " value="Next" style="position: relative;right:-80% !important;"></a>
+
+
+            </div>
+        </section>
+
+        <section id="Applicant_Academic">
+            <div class="Academic_Details">
+                <h2>Academic Details</h2>
+
+
+                <div class="personal_row_1">
+                    <div class="frm-template">
+                        <label for="adm_no">Admission Number<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="nos" name="adm_no" id="adm_no"  placeholder="Enter RegisterNumber"   />
+                        <span class="CommonErr" id="regnoError" style="color: red;"></span>
+
+                    </div>
+                    <div class="frm-template">
+                        <label for="tc_produce">TC Produce Or Not<span class="mandatory">*</span>
+                        </label>
+                        <select name="tc_produce"  >
+                            <option value="" selected>Select</option>
+                            <option value="YES">Yes</option>
+                            <option value="NO">No</option>
+                        </select>
+                    </div>
+
+                    <div class="frm-template">
+                        <label for="oldtc_issue_no">Old TC Issue No
+                        </label>
+                        <input type="text" id="oldtc_issue_no" name="oldtc_issue_no" placeholder="Old TC Issue No" />
+
+                    </div>
+                </div>
+                <div class="personal_row_1">
+
+                    <!--div class="frm-template">
+                    <label for="admno">Admission Number<span class="mandatory">*</span>
+                    </label>
+                    <input type="text" id="admno" name="a_no" maxlength="6" minlength="6" placeholder="Enter AdmissionNumber"  />
+                </div-->
+                    <div class="frm-template">
+                        <label for="oldtc_issue_date">Old TC Issue Date
+                        </label>
+                        <input type="date" id="oldtc_issue_date" name="oldtc_issue_date" placeholder="Old TC Issue Date" />
+                    </div>
+
+                    <div class="frm-template">
+                        <label for="admdate">Admission Date
+                        </label>
+                        <input type="date" name="admdate" id="admdate" placeholder="Enter AdmissionDate" />
+                    </div>
+                    <div class="frm-template">
+                        <label for="cls">Standard On Admission<span class="mandatory">*</span>
+                        </label>
+                        <select name="cls" id="cls"  >
+                            <option value="" selected>Select</option>
+                            <option value="VI">VI</option>
+                            <option value="VII">VII</option>
+                            <option value="VIII">VIII</option>
+                            <option value="IX">IX</option>
+                            <option value="X">X</option>
+                            <option value="XI">XI</option>
+                            <option value="XII">XII</option>
+                        </select>
+                    </div>
+                    <!--div class="frm-template">
+                    <label for="admdate">Admission Year<span class="mandatory">*</span>
+                    </label>
+                    <input type="date" name="admyear" id="admyear" placeholder="Enter AdmissionYear..." />
+                </div-->
+
+                </div>
+                <div class="personal_row_1">
+
+                    <div class="frm-template">
+                        <label for="cls">Standard Of Leaving<span class="mandatory">*</span>
+                        </label>
+                        <select name="cls_of_leaving" id="cls"  >
+                            <option value="" selected>Select</option>
+                            <option value="VI">VI</option>
+                            <option value="VII">VII</option>
+                            <option value="VIII">VIII</option>
+                            <option value="IX">IX</option>
+                            <option value="X">X</option>
+                            <option value="XI">XI</option>
+                            <option value="XII">XII</option>
+                        </select>
+                    </div>
+                    <div class="frm-template">
+
+                        <label for="dateofleave">Date Of Leaving<span class="mandatory">*</span>
+                        </label>
+                            <input type="date" id="dateofleave" name="date_of_leave" placeholder="Date Of Leaving" />
+                    </div>
+
+                    <div class="frm-template">
+                        <label for="newtc_issue_date">New TC Issue Date
+                        </label>
+                        <input type="date" id="newtc_issue_date" name="newtc_issue_date" placeholder="New TC Issue Date" />
+                    </div>
+                </div>
+
+                <div class="personal_row_1">
+                    <div class="frm-template">
+                        <label for="reasonforleaving">Reason For Leaving
+                        </label>
+                        <input type="text" id="reasonforleaving" name="reason_for_leaving" placeholder="Reason For Leaving" />
+                    </div>
+                    <div class="frm-template">
+                        <label for="remarks">Remarks
+                        </label>
+                        <input type="text" id="remarks" name="remarks" placeholder="Enter Any Remarks" />
+                    </div>
+
+                    <div class="frm-template">
+
+                    </div>
+
+                </div>
+
+
+                <a href="#Applicant_other">
+                    <input type="button" class="btn" style="position: relative;right:-80% !important;" value="Next"></a>
+
+
+
+            </div>
+
+        </section>
+
+        <section id="Applicant_other">
+
+            <div class="Academic_Details">
+                <h2>Parent/Guardian Details</h2>
+
+                <div class="personal_row_1">
+
+                    <div class="frm-template">
+                        <label for="relation">Select Relation:</label>
+                        <select id="relation" name="relation" onchange="showInfo()">
+                            <option value="parent">Parent</option>
+                            <option value="guardian">Guardian</option>
+                        </select>
+                    </div>
+                    <div class="personal_row_1" id="fatherInfo">
+                        <div class="frm-template" style="margin-left:3vw;">
+                            <label for="fname">Father Name<span class="mandatory">*</span>
+                            </label>
+                            <input type="text" class="Name_val" name="fname" id="fname" placeholder="Enter FatherName" />
+                            <span class="CommonErr" id="fnameError" style="color: red;"></span>
+                        </div>
+
+                        <div class="frm-template">
+                            <label for="con-no">Father Occupation<span class="mandatory">*</span>
+                            </label>
+                            <select name="foccupation" id="con-no">
+                                <option value="">select</option>
+                                <option value="Dailywages">DailyWages</option>
+                                <option value="Farmer">Farmer</option>
+                                <option value="Goverment">Goverment</option>
+                                <option value="Private">Private</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="personal_row_1" id="guardianInfo" style="display:none">
+                    <div class="frm-template">
+                        <label for="gname">Guardian Name<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="Name_val" name="gname" id="gname" placeholder="Enter Guardian name" />
+                        <span class="CommonErr" id="gnameError" style="color: red;"></span>
+                    </div>
+                    <div class="frm-template">
+                        <label for="con-no">Guardian Occupation<span class="mandatory">*</span>
+                        </label>
+                        <select name="goccupation" id="con-no">
+                            <option value="">select</option>
+                            <option value="Dailywages">DailyWages</option>
+                            <option value="Goverment">Goverment</option>
+                            <option value="Private">Private</option>
+                        </select>
+                    </div>
+                    <div class="frm-template">
+                        <label for="ann-income">Annual Income<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="nos" id="gann_income" name="gann_income" placeholder="Annual Income" />
+                        <span class="CommonErr" id="gann_incomeError" style="color: red;"></span>
+                    </div>
+                </div>
+                <div class="personal_row_1" id="Hidden_SelectGuad">
+                    <div class="frm-template">
+                        <label for="mname">Mother Name<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="Name_val" id="mname" name="mname" placeholder="Enter MotherName" />
+                        <span class="CommonErr" id="mnameError" style="color: red;"></span>
+                    </div>
+
+                    <div class="frm-template">
+                        <label for="con-no1">Mother Occupation
+                        </label>
+                        <select name="moccupation" id="con-no1">
+                            <option value="">select</option>
+                            <option value="Homemaker">Homemaker</option>
+                            <option value="BeediWorker">Beedi Worker</option>
+                            <option value="Dailywages">DailyWages</option>
+                            <option value="Goverment">Goverment</option>
+                            <option value="Private">Private</option>
+
+                        </select>
+                    </div>
+
+                    <div class="frm-template">
+                        <label for="ann-income">Annual Income<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="nos" id="ann_income" name="ann_income" placeholder="Annual Income" />
+                        <span class="CommonErr" id="ann_incomeError" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div class="personal_row_1">
+
+                    <div class="frm-template">
+                        <label for="con-no">Contact Number<span class="mandatory">*</span>
+                        </label>
+                        <input type="text"class="nos" id="con_no" maxlength="10" minlength="10" name="parent_contact" placeholder="Enter PhoneNumber"  />
+                        <span class="CommonErr" id="con_noError" style="color: red;"></span>
+                    </div>
+                    <div class="frm-template">
+                        <label for="address_val">Street<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="address_val" id="address_val" name="address" placeholder="Enter Address"  />
+                        <span class="CommonErr" id="address_valError" style="color: red;"></span>
+                    </div>
+                    <div class="frm-template">
+                        <label for="city">Rural/City<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" id="city" name="city" placeholder="Enter CityName"  />
+                    </div>
+
+
+                </div>
+
+                <div class="personal_row_1">
+                    <div class="frm-template">
+
+                        <label for="district">District<span class="mandatory">*</span>
+                        </label>
+                        <input type="text"class="Name_val" id="district" name="district" placeholder="Enter DistrictName"  />
+                        <span class="CommonErr" id="districtError" style="color: red;"></span>
+                    </div>
+                    <div class="frm-template">
+                        <label for="state">State<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" class="Name_val" id="state" name="state" placeholder="Enter StateName"  />
+                       
+                    </div>
+
+                    <div class="frm-template">
+                        <label for="pin-code">Pincode<span class="mandatory">*</span>
+                        </label>
+                        <input type="text" id="pin-code" name="pin_code" minlength="6" maxlength="6" placeholder="Enter Pincode"  />
+                    </div>
+
+
+
+                </div>
+                <div class="personal_row_1" style="justify-content: flex-start;">
+
+
+                </div>
+                <div class="btn-control">
+
+                    <input type="submit" class="btn submit" value="submit">
+                    <button type="reset" class="btn " value="Clear">Clear</button>
+
+
+                </div>
+
+            </div>
+
+        </section>
+    </form>
+   
+<script>
+$(document).ready(function() {
+    $('#myForm').submit(function(event) {
+        // Prevent default form submission
+        event.preventDefault();
+
+        // Serialize form data
+        var formData = $(this).serialize();
+
+        // AJAX request
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'), // URL from form action attribute
+            data: formData,
+            success: function(response) {
+                // Handle success
+                if (response.trim() === 'Success') {
+                    alert('Form submitted successfully!');
+                    $('#myForm')[0].reset(); // Clear the form
+                } else {
+                    alert('Form submission failed. Please try again.');
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle errors
+                alert('Error: ' + xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
+    
+    <script>
+    (function() {
+        var inputs = document.querySelectorAll('.Name_val');
+        inputs.forEach(function(input) {
+            input.addEventListener("input", function() {
+                validateNameInput(input);
+            });
+        });
+
+        function validateNameInput(input) {
+            var inputId = input.id;
+            var inputValue = input.value.trim();
+            var errorSpan = document.getElementById(inputId + "Error");
+            var inputElement = document.getElementById(inputId);
+            if (inputValue === "") {
+                errorSpan.textContent = "Name is ";
+                inputElement.style.border = '1px solid red';
+            } else if (!/^[a-zA-Z ]*$/.test(inputValue)) {
+                errorSpan.textContent = "Only letters and white space allowed";
+                inputElement.style.border = '1px solid red';
+            } else {
+                errorSpan.textContent = "";
+                inputElement.style.border = '1px solid grey';
+            }
+        }
+    })();
+</script>
+
+<script>
+    (function() {
+        var inputs = document.querySelectorAll('.address_val');
+        inputs.forEach(function(input) {
+            input.addEventListener("input", function() {
+                validateAddressInput(input);
+            });
+        });
+
+        function validateAddressInput(input) {
+            var inputId = input.id;
+            var inputValue = input.value.trim();
+            var errorSpan = document.getElementById(inputId + "Error");
+            var inputElement = document.getElementById(inputId);
+            if (inputValue === "") {
+                errorSpan.textContent = "Address is ";
+                inputElement.style.border = '1px solid red';
+            } else if (!/^[a-zA-Z0-9\s]+$/.test(inputValue)) {
+                errorSpan.textContent = "Only letters, numbers, and white space allowed";
+                inputElement.style.border = '1px solid red';
+            } else {
+                errorSpan.textContent = "";
+                inputElement.style.border = '1px solid grey';
+            }
+        }
+    })();
+</script>
+
+
+<script>
+    var nosinputs=document.querySelectorAll('.nos');
+    var regex = /^\d+$/;
+    nosinputs.forEach(function(nosinput){
+        nosinput.addEventListener("input",function(){
+            NosValidate(nosinput);
+        });       
+    });
+    function NosValidate(nosinput){
+        let inputId=nosinput.id;
+        let inputValue = nosinput.value.trim()
+        let errorSpan = document.getElementById(inputId + "Error");
+        var inputElement = document.getElementById(inputId);
+        if (inputValue === "") {
+            errorSpan.textContent = "Please Enter Number";
+            inputElement.style.border = '1px solid red';
+    
+    } else if (!regex.test(inputValue)) {
+        errorSpan.textContent = " Only Numbers are Allowed";
+        inputElement.style.border = '1px solid red';
+        
+    } else {
+        errorSpan.textContent = "";
+        inputElement.style.border = '1px solid grey';
+       
+    }
+    }
+   
+
+</script>
+<script>
+
+$(document).ready(function(){
+    $('#rollno').keyup(function(){
+        var rollno = $(this).val();
+        
+        $.ajax({
+            url: 'check_roll_number.php',
+            type: 'post',
+            data: {rollno: rollno},
+            success: function(response){
+                if(response.trim() === "Roll number exists") {
+                    console.log(response)
+                    $('#rollnoError').html(response).css('color', 'red');
+                    $('#rollno').css('border', '1px solid red');
+                    //$('#rollno').css('outline', 'red');
+
+                } else {
+                    $('#rollno').css('border', '1px solid grey');
+                }
+            }
+        });
+    });
+});
+</script>
+</body>
+
+</html>
