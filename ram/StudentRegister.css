@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+::selection{
+    background-color: rgb(62, 59, 59);
+    color:white;
+}
+/*--------CommErr-------*/
+.CommonErr{
+    color:#d02121 !important;
+    text-align: center;
+    width: 25vw;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    
+}
+/*------Number---------*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    text-align: center;
+    -moz-appearance: textfield;
+}
+select option:hover{
+    background-color: red;
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-family: poppins;
+}
+.mandatory{
+    color: red;
+}
+h1 {
+    font-size: 35px;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+h2 {
+    font-size: 25px;
+}
+html{
+    scroll-behavior: smooth;
+    height: auto;
+    width: 100vw;
+    overflow-x:hidden ;
+}
+/*----------------MENUBAR-------------*/
+.header {
+    height: 20vh;
+    width: 90vw;
+    margin:0 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+.header .logo{
+    height: auto;
+    width: 50%;
+    display: flex;
+   
+}
+.menus{
+    height: 80%;
+    width: 50%;
+    display: grid;
+    place-items: center;
+    
+}
+.menus ul{
+  
+   height: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+      
+}
+.menus ul a{
+    font-weight: 500;
+    height: 40%;
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(198, 202, 206);
+    transition:0.5s ;
+}
+.menus ul a:hover{
+    color: #050505bd;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+body{
+    background-color: #3467f3;
+   
+}
+#Applicant_Personal,#Applicant_Academic,#Applicant_other{
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: 0 0 5px #e8dddd;
+    height: auto;
+    width: 93vw;
+    margin: 5px 15px;
+    padding: 15px;
+    margin-bottom: 10vh;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    left: 20px;
+}
+.personal,.Academic_Details{
+    padding: 20px;
+    box-shadow: 0 0 3px #a09e9e;
+    height: auto;
+    width: 95%;
+    margin: 10px 0px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.personal_row_1,.Academic_row{
+   
+    height: auto;
+    width: 100%;
+    margin:17px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label{
+    margin-left: 10px;
+    font-size: 18px;
+
+    font-weight: 500;
+}
+input::placeholder{
+    margin-left:20px ;
+    padding:10px;
+}
+input[type="date"],input[type="email"],input[type="text"],input[type="number"]{
+    font-weight: 400;
+    text-align:center;
+}
+
+select{
+    text-align: center;
+    cursor: pointer;
+}
+.CommonErr{
+    width: 25vw;
+}
+select{
+    height: 6vh;
+    width: 25vw;
+    outline: none;
+    border-radius: 5px;
+    font-size: 17px;
+
+    border: 1px solid #aaa;
+}
+input,button{
+    height: 6vh;
+    width: 25vw;
+    outline: none;
+    border-radius: 5px;
+    font-size: 17px;
+    color: #333;
+    border: 1px solid #aaa;
+}
+input:focus{
+    border: 1.5px solid #3e1cc6;
+    box-shadow: 0 0 2px #fff;
+}
+.btn-control{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.btn,button,.btncls{
+    margin: 5px;
+    padding: 5px;
+    width: 10%;
+    background-color: #3467f3;
+    color: #fff;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+.btn:hover,.btncls:hover{
+    transform: scale(1);
+    font-weight: 600;
+    background: #0a4270;
+    color:#ffffff;
+}
+.frm-template{
+    padding: 10px;
+    display: block !important;
+    height: 10vh;
+    width: 27vw;
+}
+#clr:hover{
+    background-color: #920909 !important;
+}
+/*--------------------BTN-CLS*------------------*/
+.btncls{
+    height: 4.5vh;
+    width: 5vw;
+    text-align: center;
+    border: 1px solid gray;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
